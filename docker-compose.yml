@@ -1,0 +1,48 @@
+# docker exec -it $(docker ps --quiet --filter "label=node-api.service=api")
+
+version: "3.7"
+
+volumes:
+  postgres_data:
+  node_modules:
+
+networks:
+  development:
+
+services:
+  api:
+    # image: node-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    env_file:
+      - .env.development
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    command: tail -f /dev/null
+    # command: yarn start
+    ports:
+      - "3000:3000"
+    networks:
+      - development
+    labels:
+      node-api.service: api
+
+  postgres:
+    image: postgres:12.2-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: node_api_development
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - development
+    labels:
+      node-api.service: postgres

@@ -1,0 +1,9 @@
+/.git
+/.idea
+/node_modules
+/.dockerignore
+/.env*
+/.gitignore
+/docker-compose
+/Dockerfile*
+/yarn-error.log

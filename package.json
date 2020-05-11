@@ -1,0 +1,21 @@
+{
+  "name": "node-api",
+  "version": "0.0.1",
+  "author": "Anton Prudkohliad",
+  "license": "MIT",
+  "private": true,
+
+  "scripts": {
+    "start": "node src/index.js"
+  },
+
+  "dependencies": {
+    "@koa/router": "8.0.8",
+    "jsrsasign": "8.0.15",
+    "koa": "2.11.0",
+    "koa-bodyparser": "4.3.0",
+    "koa-parameter": "3.0.1",
+    "pg": "8.1.0",
+    "pg-pool": "3.2.0"
+  }
+}
