@@ -11,7 +11,7 @@
 
   "dependencies": {
     "@koa/router": "8.0.8",
-    "jsrsasign": "8.0.15",
+    "jsrsasign": "10.5.25",
     "koa": "2.11.0",
     "koa-bodyparser": "4.3.0",
     "koa-parameter": "3.0.1",
